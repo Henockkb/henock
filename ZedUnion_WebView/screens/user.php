@@ -4,10 +4,10 @@ session_start();
 $telephone = $_SESSION['telephone'];
 $nom = $_SESSION['nom'];
 $motdepasse = $_SESSION['motdepasse'];
+
 try {
     $pdo = new PDO('mysql:host=127.0.0.1;dbname=zedunion;', 'root', '');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
 } catch (PDOException $e) {
     echo "Erreur de connexion à la base de données : " . $e->getMessage();
     exit();
@@ -17,6 +17,10 @@ function redirigerVersEspace($statut) {
     switch ($statut) {
         case 'admin':
             header('Location: ../administration/home.php');
+            exit();
+            break;
+        case 'agent':
+            header('Location: ../agents/home.php');
             exit();
             break;
         default:
