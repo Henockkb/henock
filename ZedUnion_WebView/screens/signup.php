@@ -12,7 +12,7 @@ try {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nom = htmlspecialchars($_POST['nom'], ENT_QUOTES, 'UTF-8');
         $mail = htmlspecialchars($_POST['mail'], ENT_QUOTES, 'UTF-8');
-        $telephone = htmlspecialchars($_POST['telephone'], ENT_QUOTES, 'UTF-8'); // Ajout de +243
+        $telephone = htmlspecialchars($_POST['telephone'], ENT_QUOTES, 'UTF-8');
         $motdepasse = password_hash($_POST['motdepasse'], PASSWORD_DEFAULT);
         $statut = htmlspecialchars($_POST['statut'], ENT_QUOTES, 'UTF-8');
         $_SESSION['telephone'] = $telephone;
